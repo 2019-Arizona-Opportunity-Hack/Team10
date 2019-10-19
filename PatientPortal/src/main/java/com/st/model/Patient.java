@@ -23,12 +23,14 @@ public class Patient
 	private String notes;
 	//private Date[];
 	//private Time[];
-	//private String[] diagnosis;
-	//private String[] fundSource;
-	//private Long dOB;
+	private String[] diagnosis;
+	private String[] fundSource;
+	private String dOB;
 	
 	
 	
+	
+
 	public Patient(Long id, String fName, String lName, Long phone, String parFName, String parLName, String email,
 			String address, String refReason, String notes) 
 	{
@@ -44,6 +46,29 @@ public class Patient
 		this.notes = notes;
 	}
 	
+	public String[] getDiagnosis() {
+		return diagnosis;
+	}
+
+	public void setDiagnosis(String[] diagnosis) {
+		this.diagnosis = diagnosis;
+	}
+
+	public String[] getFundSource() {
+		return fundSource;
+	}
+
+	public void setFundSource(String[] fundSource) {
+		this.fundSource = fundSource;
+	}
+
+	public String getdOB() {
+		return dOB;
+	}
+
+	public void setdOB(String dOB) {
+		this.dOB = dOB;
+	}
 	public String getfName() {
 		return fName;
 	}
