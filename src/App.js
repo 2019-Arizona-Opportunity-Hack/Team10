@@ -1,11 +1,10 @@
 import React from 'react';
+import PatientForm from './Forms/PatientForm.jsx'
 
-function App() {
+export default function App() {
   return (
     <div>
-      <p>hello world</p>
+      <PatientForm />
     </div>
   );
 }
-
-export default App;
