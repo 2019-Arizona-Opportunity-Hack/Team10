@@ -338,7 +338,7 @@ export default function PatientForm() {
             {errors.exampleRequired && <span>This field is required</span>}
           */}
 
-          <Button as={Col} variant="outline-dark" type="submit" className="btn-lg">
+          <Button variant="outline-dark" type="submit" className="btn-lg btn-block">
             Submit
           </Button>
         </Form>
