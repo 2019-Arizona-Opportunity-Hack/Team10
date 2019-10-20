@@ -12,10 +12,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 export default function App() {
   return (
     <div>
-<<<<<<< HEAD
-      {/* <PatientForm /> */}
-      <ManagerDashboard />
-=======
       <Router>
         <Header />
 
@@ -27,9 +23,8 @@ export default function App() {
           <Route exact path="/dashboard" component={ManagerDashboard} />
         </Switch>
       </Router>
->>>>>>> 8980507c037b4f5914ef96928ec63216a21956fa
     </div>
-  );
+  )
 }
 
 function HomeScreen(){
@@ -49,10 +44,7 @@ function HomeScreen(){
           </Col>
         </Row>
       </Container>
-
-
     </div>
-
   )
 }
 
