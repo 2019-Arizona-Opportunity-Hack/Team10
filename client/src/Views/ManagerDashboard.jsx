@@ -6,6 +6,30 @@ import ManagerDoctorsCom from "./ManagerDoctorsCom";
 import { Link } from "react-router-dom";
 
 class ManagerDashboard extends Component {
+  state = {
+    doctors: []
+  };
+  getAllDoctors = async () => {
+    try {
+      const res = await fetch("http://localhost:8080/doctors", {
+        headers: {
+          "Content-Type": "application/json",
+          method: "GET"
+        }
+      });
+      const doctors = await res.json();
+      this.setState(doctors);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  componentDidMount = () => {
+    this.getAllDoctors();
+    console.log("##############");
+    console.log(this.state.doctors);
+  };
+
   patientInfo = [
     {
       id: 1,
@@ -80,7 +104,9 @@ class ManagerDashboard extends Component {
       hasAppts: true
     }
   ];
+
   render() {
+    console.log(this.state.doctors);
     return (
       <div>
         <div className="managerDashboard">
@@ -97,9 +123,9 @@ class ManagerDashboard extends Component {
               </div>
               <ManagerDashboardMenu />
             </div>
-            <div className="logoutbtn">
-              <Link to="/">logout</Link>
-            </div>
+            <Link className="logoutbtn" to="/">
+              logout
+            </Link>
           </div>
           {/* <ManagerDashboardContent /> */}
           <ManagerDoctorsCom patientInfo={this.patientInfo} />

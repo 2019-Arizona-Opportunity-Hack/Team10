@@ -6,7 +6,8 @@ import Header from "../Views/Header";
 export default function TherapistForm() {
   const { register, handleSubmit, watch, errors } = useForm();
 
-<<<<<<< HEAD
+  const [sumbittedForm, setSubmittedForm] = useState(false);
+
   const [mondayDate, setMondayDate] = useState(false);
   const [tuesdayDate, setTuesdayDate] = useState(false);
   const [wednesdayDate, setWednesdayDate] = useState(false);
@@ -14,71 +15,58 @@ export default function TherapistForm() {
   const [fridayDate, setFridayDate] = useState(false);
 
   const onSubmit = data => {
-    console.log(data);
-  };
-=======
-  const [sumbittedForm, setSubmittedForm] = useState(false)
-
-  const [mondayDate, setMondayDate] = useState(false)
-  const [tuesdayDate, setTuesdayDate] = useState(false)
-  const [wednesdayDate, setWednesdayDate] = useState(false)
-  const [thursdayDate, setThursdayDate] = useState(false)
-  const [fridayDate, setFridayDate] = useState(false)
-
-  const onSubmit = data => {
-    let availableDoctorDates = []
-    if( data.mondayDates ) {
-      availableDoctorDates[0] = {}
-      availableDoctorDates[0].startDate = `2019-10-21 ${data.mondayStartTime}:00:00`
-      availableDoctorDates[0].endDate = `2019-10-21 ${data.mondayEndTime}:00:00`
+    let availableDoctorDates = [];
+    if (data.mondayDates) {
+      availableDoctorDates[0] = {};
+      availableDoctorDates[0].startDate = `2019-10-21 ${data.mondayStartTime}:00:00`;
+      availableDoctorDates[0].endDate = `2019-10-21 ${data.mondayEndTime}:00:00`;
     } else {
-      availableDoctorDates[0] = null
+      availableDoctorDates[0] = null;
     }
-    if( data.tuesdayDates ) {
-      availableDoctorDates[1] = {}
-      availableDoctorDates[1].startDate = `2019-10-22 ${data.tuesdayStartTime}:00:00`
-      availableDoctorDates[1].endDate = `2019-10-22 ${data.tuesdayEndTime}:00:00`
+    if (data.tuesdayDates) {
+      availableDoctorDates[1] = {};
+      availableDoctorDates[1].startDate = `2019-10-22 ${data.tuesdayStartTime}:00:00`;
+      availableDoctorDates[1].endDate = `2019-10-22 ${data.tuesdayEndTime}:00:00`;
     } else {
-      availableDoctorDates[1] = null
+      availableDoctorDates[1] = null;
     }
-    if( data.wednesdayDates ) {
-      availableDoctorDates[2] = {}
-      availableDoctorDates[2].startDate = `2019-10-23 ${data.wednesdayStartTime}:00:00`
-      availableDoctorDates[2].endDate = `2019-10-23 ${data.wednesdayEndTime}:00:00`
+    if (data.wednesdayDates) {
+      availableDoctorDates[2] = {};
+      availableDoctorDates[2].startDate = `2019-10-23 ${data.wednesdayStartTime}:00:00`;
+      availableDoctorDates[2].endDate = `2019-10-23 ${data.wednesdayEndTime}:00:00`;
     } else {
-      availableDoctorDates[2] = null
+      availableDoctorDates[2] = null;
     }
-    if( data.thursdayDates ) {
-      availableDoctorDates[3] = {}
-      availableDoctorDates[3].startDate = `2019-10-24 ${data.thursdayStartTime}:00:00`
-      availableDoctorDates[3].endDate = `2019-10-24 ${data.thursdayEndTime}:00:00`
+    if (data.thursdayDates) {
+      availableDoctorDates[3] = {};
+      availableDoctorDates[3].startDate = `2019-10-24 ${data.thursdayStartTime}:00:00`;
+      availableDoctorDates[3].endDate = `2019-10-24 ${data.thursdayEndTime}:00:00`;
     } else {
-      availableDoctorDates[3] = null
+      availableDoctorDates[3] = null;
     }
-    if( data.fridayDates ) {
-      availableDoctorDates[4] = {}
-      availableDoctorDates[4].startDate = `2019-10-25 ${data.fridayStartTime}:00:00`
-      availableDoctorDates[4].endDate = `2019-10-25 ${data.fridayEndTime}:00:00`
-    }  else {
-      availableDoctorDates[4] = null
+    if (data.fridayDates) {
+      availableDoctorDates[4] = {};
+      availableDoctorDates[4].startDate = `2019-10-25 ${data.fridayStartTime}:00:00`;
+      availableDoctorDates[4].endDate = `2019-10-25 ${data.fridayEndTime}:00:00`;
+    } else {
+      availableDoctorDates[4] = null;
     }
-    let refinedData = {}
-    refinedData.fName = data.firstName
-    refinedData.lName = data.lastName
-    refinedData.phoneNum = data.phoneNumber
-    refinedData.emailAddr = data.emailAddress
-    refinedData.availableDoctorDates = availableDoctorDates
+    let refinedData = {};
+    refinedData.fName = data.firstName;
+    refinedData.lName = data.lastName;
+    refinedData.phoneNum = data.phoneNumber;
+    refinedData.emailAddr = data.emailAddress;
+    refinedData.availableDoctorDates = availableDoctorDates;
     fetch(`http://localhost:8080/doctors`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(refinedData),
-      headers:{
-        'Content-Type': 'application/json'
+      headers: {
+        "Content-Type": "application/json"
       }
-    }).then(() => setSubmittedForm(true))
-     console.log(data)
-     console.log(refinedData)
-   }
->>>>>>> d925f25e9cc31b98a3c8211987c0a3cb81a4d2db
+    }).then(() => setSubmittedForm(true));
+    console.log(data);
+    console.log(refinedData);
+  };
 
   //console.log(watch('firstName')) // watch input value by passing the name of it
 
