@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
         lName: 'Py', 
         phoneNum: '839-492-3847',
         emailAddr: 'therapy@therapystudio.com',
-      },
+      }
       ]);
     });
 };

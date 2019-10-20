@@ -7,69 +7,57 @@ exports.seed = function(knex, Promise) {
       return knex('patients').insert([
         {
         id: 1, 
-        fName: 'fName1', 
-        lName: 'lName1', 
-        birthday: '11/11/11', 
-        diagnoses: 'cancer,asdf', 
-        phoneNum: '12345667',
-        guardianFName: 'qwe',
-        guardianLName: 'asd',
-        emailAddr: 'asd@asd.com',
-        mailingAddr: '123',
-        fundingSource: 'asf' 
+        fName: 'James', 
+        lName: 'Smith', 
+        birthday: '11/11/92', 
+        diagnoses: 'Cerebral Palsy', 
+        phoneNum: '623-745-2342',
+        guardianFName: '',
+        guardianLName: '',
+        emailAddr: 'jsmith@hma.com',
+        mailingAddr: '123 W California St, San Diego, CA 91929',
+        fundingSource: 'private pay' 
       },
-      {
+        {
         id: 2, 
-        fName: 'fName2', 
-        lName: 'lName2', 
-        birthday: '11/11/11', 
-        diagnoses: 'cancer,asdf', 
-        phoneNum: '12345667',
-        guardianFName: 'qwe',
-        guardianLName: 'asd',
-        emailAddr: 'asd@asd.com',
-        mailingAddr: '123',
-        fundingSource: 'asf' 
+        fName: 'Cara', 
+        lName: 'White', 
+        birthday: '11/11/92', 
+        diagnoses: 'ADHD, ADHD', 
+        phoneNum: '623-745-1231',
+        guardianFName: 'Ray',
+        guardianLName: 'White',
+        emailAddr: 'cwhite@hma.com',
+        mailingAddr: '3412 W Bay St, California City, CA 91929',
+        fundingSource: 'private pay' 
       },
-      {
+              {
         id: 3, 
-        fName: 'fName3', 
-        lName: 'lName3', 
-        birthday: '11/11/11', 
-        diagnoses: 'cancer,asdf', 
-        phoneNum: '12345667',
-        guardianFName: 'qwe',
-        guardianLName: 'asd',
-        emailAddr: 'asd@asd.com',
-        mailingAddr: '123',
-        fundingSource: 'asf' 
+        fName: 'Bill', 
+        lName: 'Arey', 
+        birthday: '11/11/92', 
+        diagnoses: 'Autism', 
+        phoneNum: '456-745-2342',
+        guardianFName: '',
+        guardianLName: '',
+        emailAddr: 'billarey@hma.com',
+        mailingAddr: '123 W California St, San Diego, CA 91929',
+        fundingSource: 'private pay' 
       },
-      {
+              {
         id: 4, 
-        fName: 'fName4', 
-        lName: 'lName4', 
-        birthday: '11/11/11', 
-        diagnoses: 'cancer,asdf', 
-        phoneNum: '12345667',
-        guardianFName: 'qwe',
-        guardianLName: 'asd',
-        emailAddr: 'asd@asd.com',
-        mailingAddr: '123',
-        fundingSource: 'asf' 
-      },
-      {
-        id: 5, 
-        fName: 'fName5', 
-        lName: 'lName5', 
-        birthday: '11/11/11', 
-        diagnoses: 'cancer,asdf', 
-        phoneNum: '12345667',
-        guardianFName: 'qwe',
-        guardianLName: 'asd',
-        emailAddr: 'asd@asd.com',
-        mailingAddr: '123',
-        fundingSource: 'asf' 
-      },
+        fName: 'Jake', 
+        lName: 'Green', 
+        birthday: '06/07/92', 
+        diagnoses: 'Cerebral Palsy', 
+        phoneNum: '978-745-6785',
+        guardianFName: '',
+        guardianLName: '',
+        emailAddr: 'jakegreen@hma.com',
+        mailingAddr: '123 W California St, San Diego, CA 91929',
+        fundingSource: 'private pay' 
+      }
+
 
       ]);
     });
