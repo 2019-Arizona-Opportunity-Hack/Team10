@@ -158,10 +158,9 @@ export default function PatientForm() {
             </Col>
             <Col>
               <Container className="float-left">
-                <Form.Group controlId="datesAvailable">
                   <Form.Label style={labelStyle}>Dates Available</Form.Label>
 
-                    <Form.Check type="checkbox" name="mondayDates" label="Monday" ref={register} mondayDate={mondayDate} onChange={() => setMondayDate(!mondayDate)}/>
+                    <Form.Check type="checkbox" id="mondayDates" label="Monday" ref={register} mondayDate={mondayDate} onChange={() => setMondayDate(!mondayDate)}/>
                     {mondayDate &&
                       <>
                     <Form.Group controlId="mondayStartTime">
@@ -195,7 +194,7 @@ export default function PatientForm() {
                   </>
                   }
 
-                    <Form.Check type="checkbox" name="tuesdayDates" label="Tuesday" ref={register} tuesdayDate={tuesdayDate} onChange={() => setTuesdayDate(!tuesdayDate)}/>
+                    <Form.Check type="checkbox" id="tuesdayDates" label="Tuesday" ref={register} tuesdayDate={tuesdayDate} onChange={() => setTuesdayDate(!tuesdayDate)}/>
                     {tuesdayDate &&
                       <>
                     <Form.Group controlId="tuesdayStartTime">
@@ -229,7 +228,7 @@ export default function PatientForm() {
                   </>
                   }
 
-                    <Form.Check type="checkbox" name="wednesdayDates" label="Wednesday" ref={register} wednesdayDate={wednesdayDate} onChange={() => setWednesdayDate(!wednesdayDate)}/>
+                    <Form.Check type="checkbox" id="wednesdayDates" label="Wednesday" ref={register} wednesdayDate={wednesdayDate} onChange={() => setWednesdayDate(!wednesdayDate)}/>
                     {wednesdayDate &&
                       <>
                     <Form.Group controlId="wednesdayStartTime">
@@ -263,7 +262,7 @@ export default function PatientForm() {
                   </>
                   }
 
-                    <Form.Check type="checkbox" name="thursdayDates" label="Thursday" ref={register} thursdayDate={thursdayDate} onChange={() => setThursdayDate(!thursdayDate)}/>
+                    <Form.Check type="checkbox" id="thursdayDates" label="Thursday" ref={register} thursdayDate={thursdayDate} onChange={() => setThursdayDate(!thursdayDate)}/>
                     {thursdayDate &&
                       <>
                     <Form.Group controlId="thursdayStartTime">
@@ -297,7 +296,7 @@ export default function PatientForm() {
                   </>
                   }
 
-                    <Form.Check type="checkbox" name="fridayDates" label="Friday" ref={register} fridayDate={fridayDate} onChange={() => setFridayDate(!fridayDate)}/>
+                    <Form.Check type="checkbox" id="fridayDates" label="Friday" ref={register} fridayDate={fridayDate} onChange={() => setFridayDate(!fridayDate)}/>
                     {fridayDate &&
                       <>
                     <Form.Group controlId="fridayStartTime">
@@ -330,7 +329,6 @@ export default function PatientForm() {
                     </Form.Group>
                   </>
                   }
-                </Form.Group>
               </Container>
             </Col>
           </Form.Row>
