@@ -3,6 +3,7 @@ import "../Styles/MangagerDashboard.css";
 import Brand from "../assets/logo/logo.svg";
 import ManagerDashboardMenu from "./ManagerDashboardMenu";
 import ManagerDoctorsCom from "./ManagerDoctorsCom";
+import ManagerDashboardContent from "./ManagerDashboardContent";
 import { Link } from "react-router-dom";
 
 class ManagerDashboard extends Component {
@@ -30,81 +31,6 @@ class ManagerDashboard extends Component {
     console.log(this.state.doctors);
   };
 
-  patientInfo = [
-    {
-      id: 1,
-      name: "Foo Bass",
-      birthday: "09/01/1989",
-      address: "5055, Grant St, Phoenix",
-      reasonReffered: "This is why",
-      lastAppts: "08/01/1989",
-      hasAppts: true
-    },
-    {
-      id: 2,
-      name: "Foo Bass",
-      birthday: "09/01/1989",
-      address: "5055, Grant St, Phoenix",
-      reasonReffered: "This is why",
-      lastAppts: "08/01/1989",
-      hasAppts: true
-    },
-    {
-      id: 3,
-      name: "Foo Bass",
-      birthday: "09/01/1989",
-      address: "5055, Grant St, Phoenix",
-      reasonReffered: "This is why",
-      lastAppts: "08/01/1989",
-      hasAppts: true
-    },
-    {
-      id: 4,
-      name: "Foo Bass",
-      birthday: "09/01/1989",
-      address: "5055, Grant St, Phoenix",
-      reasonReffered: "This is why",
-      lastAppts: "08/01/1989",
-      hasAppts: true
-    },
-    {
-      id: 5,
-      name: "Foo Bass",
-      birthday: "09/01/1989",
-      address: "5055, Grant St, Phoenix",
-      reasonReffered: "This is why",
-      lastAppts: "08/01/1989",
-      hasAppts: true
-    },
-    {
-      id: 6,
-      name: "Foo Bass",
-      birthday: "09/01/1989",
-      address: "5055, Grant St, Phoenix",
-      reasonReffered: "This is why",
-      lastAppts: "08/01/1989",
-      hasAppts: true
-    },
-    {
-      id: 7,
-      name: "Foo Bass",
-      birthday: "09/01/1989",
-      address: "5055, Grant St, Phoenix",
-      reasonReffered: "This is why",
-      lastAppts: "08/01/1989",
-      hasAppts: true
-    },
-    {
-      id: 8,
-      name: "Foo Bass",
-      birthday: "09/01/1989",
-      address: "5055, Grant St, Phoenix",
-      reasonReffered: "This is why",
-      lastAppts: "08/01/1989",
-      hasAppts: true
-    }
-  ];
-
   render() {
     console.log(this.state.doctors);
     return (
@@ -128,7 +54,7 @@ class ManagerDashboard extends Component {
             </Link>
           </div>
           {/* <ManagerDashboardContent /> */}
-          <ManagerDoctorsCom patientInfo={this.patientInfo} />
+          <ManagerDoctorsCom doctors={this.state.doctors} />
         </div>
       </div>
     );

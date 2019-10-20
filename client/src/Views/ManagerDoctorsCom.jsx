@@ -2,7 +2,7 @@ import React from "react";
 import SearchIcon from "../assets/icons/search-solid.svg";
 import "../Styles/ManagerDoctorsCom.css";
 
-const ManagerDoctorsCom = ({ patientInfo }) => {
+const ManagerDoctorsCom = ({ doctors }) => {
   return (
     <div className="content">
       <div className="search">
@@ -16,22 +16,24 @@ const ManagerDoctorsCom = ({ patientInfo }) => {
         </h3>
         <div className="doctorCardsWrapperTitle">
           <div className="doctorCardTitle doctorIllastration">
-            <span className="doctorCardItem">Doctor</span>
-            <span className="doctorCardItem">Jame Flomo</span>
-            <span className="doctorCardItem">Condition</span>
+            <span className="doctorCardItem">Avarta</span>
+            <span className="doctorCardItem">Name</span>
+            <span className="doctorCardItem">Email</span>
             <span className="doctorCardItem">Last Date Seen</span>
           </div>
         </div>
         <div className="doctorCardsWrapper">
-          {patientInfo.map(patient => {
+          {doctors.map(doctor => {
             return (
               <div className="doctorCard">
                 <div className="doctorCardItem">
                   <div className="img"></div>
                 </div>
-                <span className="doctorCardItem">{patient.name}</span>
-                <span className="doctorCardItem">{patient.birthday}</span>
-                <span className="doctorCardItem">{patient.lastAppts}</span>
+                <span className="doctorCardItem">
+                  {doctor.fName} {doctor.lName}
+                </span>
+                <span className="doctorCardItem">{doctor.emailAddr}</span>
+                <span className="doctorCardItem">{doctor.updated_at}</span>
               </div>
             );
           })}
