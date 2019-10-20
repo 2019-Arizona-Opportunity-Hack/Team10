@@ -63,7 +63,6 @@ export default function TherapistForm() {
       headers: {
         "Content-Type": "application/json"
       }
-<<<<<<< HEAD
     }).then(() => setSubmittedForm(true))
      console.log(data)
      console.log(refinedData)
@@ -71,12 +70,6 @@ export default function TherapistForm() {
    const darkOrange = {color: '#CC6605'}
    const labelStyle = {fontSize: '24px'}
 
-=======
-    }).then(() => setSubmittedForm(true));
-    console.log(data);
-    console.log(refinedData);
-  };
->>>>>>> 624dfe70c7f2f4733ca17f6876b33fcb2a88e46f
   //console.log(watch('firstName')) // watch input value by passing the name of it
 
   return (
@@ -355,7 +348,7 @@ export default function TherapistForm() {
         </Form>
       </Container>
       <br>
-        
+
       </br>
     </div>
   );
