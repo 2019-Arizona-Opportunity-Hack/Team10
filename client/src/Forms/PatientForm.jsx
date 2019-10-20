@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import useForm from 'react-hook-form'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import TimeRangeSlider from 'react-time-range-slider'
+import InputRange from 'react-input-range';
+
 
 
 export default function PatientForm() {
@@ -56,18 +59,75 @@ export default function PatientForm() {
             </Form.Group>
           </Form.Row>
 
-          <Form.Group>
-            <Form.Label>Diagnosis</Form.Label>
-            <Form.Check type="checkbox" name="diagnoseADHD" label="ADHD" />
-            <Form.Check type="checkbox" name="diagnoseADHD" label="Asperger's Syndrome" />
-            <Form.Check type="checkbox" name="diagnoseADHD" label="Autism" />
-            <Form.Check type="checkbox" name="diagnoseADHD" label="Cerebral Palsy" />
-          </Form.Group>
+          <Form.Row>
+            <Col>
+              <Form.Group controlId="diagnosis">
+                <Form.Label>Diagnosis</Form.Label>
+                <Form.Check type="checkbox" name="diagnoseADHD" label="ADHD" ref={register} />
+                <Form.Check type="checkbox" name="diagnoseAspergers" label="Asperger's Syndrome" ref={register}/>
+                <Form.Check type="checkbox" name="diagnoseAustism" label="Autism" ref={register} />
+                <Form.Check type="checkbox" name="diagnoseCerebralPalsy" label="Cerebral Palsy" ref={register} />
+                <Form.Check type="checkbox" name="diagnoseDownSyndrome" label="Down Syndrome" ref={register} />
+                <Form.Check type="checkbox" name="diagnosePDD" label="PDD" ref={register} />
+                <Form.Check type="checkbox" name="diagnoseParkinsons" label="Parkinson's Disease" ref={register} />
+                <Form.Check type="checkbox" name="diagnoseStroke" label="Stroke" ref={register} />
+                <Form.Check type="checkbox" name="diagnoseADHD" label="ADHD" ref={register} />
+                <Form.Check type="checkbox" name="diagnoseTraumaticBrainInjury" label="Traumatic Brain Injury" ref={register} />
+              </Form.Group>
+
+              <Form.Group controlId="fundingSource">
+                <Form.Label>Funding Source</Form.Label>
+                <Form.Check type="checkbox" name="fundingPrivatePay" label="Private Pay" ref={register} />
+                <Form.Check type="checkbox" name="fundingPrivateInsurance" label="Asperger's Syndrome" ref={register}/>
+                <Form.Check type="checkbox" name="diagnoseESAAccount" label="ESA Account" ref={register} />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Row>
+                <Form.Group controlId="timeRange1">
+                  <Form.Label>Start Time</Form.Label>
+                  <Form.Control as="select" ref={register}>
+                    <option value="9">9am</option>
+                    <option value="10">10am</option>
+                    <option value="11">11am</option>
+                    <option value="12">12pm</option>
+                    <option value="13">1pm</option>
+                    <option value="14">2pm</option>
+                    <option value="15">3pm</option>
+                    <option value="16">4pm</option>
+                    <option value="17">5pm</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="timeRange2">
+                  <Form.Label>End Time</Form.Label>
+                  <Form.Control as="select" ref={register}>
+                    <option value="10">10am</option>
+                    <option value="11">11am</option>
+                    <option value="12">12pm</option>
+                    <option value="13">1pm</option>
+                    <option value="14">2pm</option>
+                    <option value="15">3pm</option>
+                    <option value="16">4pm</option>
+                    <option value="17">5pm</option>
+                    <option value="18">6pm</option>
+                  </Form.Control>
+                </Form.Group>
+              </Form.Row>
+
+
+            </Col>
+
+
+          </Form.Row>
 
           {/*
             Could do "required" instead of this
             {errors.exampleRequired && <span>This field is required</span>}
           */}
+
+          <Form.Group controlId="notes">
+
+          </Form.Group>
 
 
           <Button type="submit">
