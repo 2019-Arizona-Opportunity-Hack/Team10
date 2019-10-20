@@ -67,16 +67,19 @@ export default function TherapistForm() {
      console.log(data)
      console.log(refinedData)
    }
+   const darkOrange = {color: '#CC6605'}
+   const labelStyle = {fontSize: '24px'}
+
   //console.log(watch('firstName')) // watch input value by passing the name of it
 
   return (
     <div>
       <Header />
-      <Container>
+      <Container style={darkOrange}>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Row>
             <Form.Group as={Col} controlId="therapistFirstNameGroup">
-              <Form.Label>First Name</Form.Label>
+              <Form.Label style={labelStyle}>First Name</Form.Label>
               <Form.Control
                 name="firstName"
                 placeholder="Enter your first name"
@@ -85,7 +88,7 @@ export default function TherapistForm() {
               />
             </Form.Group>
             <Form.Group as={Col} controlId="therapistLastNameGroup">
-              <Form.Label>Last Name</Form.Label>
+              <Form.Label style={labelStyle}>Last Name</Form.Label>
               <Form.Control
                 name="lastName"
                 placeholder="Enter your last name"
@@ -97,7 +100,7 @@ export default function TherapistForm() {
 
           <Form.Row>
             <Form.Group as={Col} controlId="phoneNumber">
-              <Form.Label>Primary Phone Number</Form.Label>
+              <Form.Label style={labelStyle}>Primary Phone Number</Form.Label>
               {/* {required: true, maxLength: 12, pattern: /^\d{3}-\d{3}-\d{4}$/i} */}
               <Form.Control
                 name="phoneNumber"
@@ -115,7 +118,7 @@ export default function TherapistForm() {
               )}
             </Form.Group>
             <Form.Group as={Col} controlId="emailAddress">
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label style={labelStyle}>Email Address</Form.Label>
               <Form.Control
                 name="emailAddress"
                 type="email"
@@ -128,7 +131,7 @@ export default function TherapistForm() {
 
           <Form.Row>
             <Form.Group as={Col} controlId="mailingAddress">
-              <Form.Label>Business Address</Form.Label>
+              <Form.Label style={labelStyle}>Business Address</Form.Label>
               <Form.Control
                 name="mailingAddress"
                 placeholder="Enter your business mail address"
@@ -140,242 +143,197 @@ export default function TherapistForm() {
 
           <Form.Row>
             <Col>
-              <Form.Group controlId="fundingSource">
-                <Form.Label>Funding Source</Form.Label>
-                <Form.Check
-                  type="checkbox"
-                  name="fundingPrivatePay"
-                  label="Private Pay"
-                  ref={register}
-                />
-                <Form.Check
-                  type="checkbox"
-                  name="fundingPrivateInsurance"
-                  label="Asperger's Syndrome"
-                  ref={register}
-                />
-                <Form.Check
-                  type="checkbox"
-                  name="diagnoseESAAccount"
-                  label="ESA Account"
+              <Form.Label style={labelStyle} style={labelStyle}>Funding Source</Form.Label>
+              <Form.Check type="checkbox" id="fundingPrivatePay" label="Private Pay" ref={register} />
+              <Form.Check type="checkbox" id="fundingPrivateInsurance" label="Private Insurance (Ex: BCBS, UHC, Cigna, Aetna, etc.)" ref={register}/>
+              <Form.Check type="checkbox" id="diagnoseESAAccount" label="ESA Account" ref={register} />
+              <hr></hr>
+              <Form.Group controlId="therapistNotes">
+                <Form.Label style={labelStyle}>Additional Notes</Form.Label>
+                <Form.Control
+                  name="therapistNotes"
+                  type="text"
+                  placeholder="Enter any additional information"
                   ref={register}
                 />
               </Form.Group>
             </Col>
             <Col>
-              <Form.Group controlId="datesAvailable">
-                <Form.Label>Dates Available</Form.Label>
-                <Form.Row>
-                  <Form.Check
-                    type="checkbox"
-                    name="mondayDates"
-                    label="Monday"
-                    ref={register}
-                    mondayDate={mondayDate}
-                    onChange={() => setMondayDate(!mondayDate)}
-                  />
-                  {mondayDate && (
-                    <>
-                      <Form.Group controlId="mondayStartTime">
-                        <Form.Label>Start Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="9">9am</option>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group controlId="mondayEndTime">
-                        <Form.Label>End Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                          <option value="18">6pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                    </>
-                  )}
-                </Form.Row>
-                <Form.Row>
-                  <Form.Check
-                    type="checkbox"
-                    name="tuesdayDates"
-                    label="Tuesday"
-                    ref={register}
-                    tuesdayDate={tuesdayDate}
-                    onChange={() => setTuesdayDate(!tuesdayDate)}
-                  />
-                  {tuesdayDate && (
-                    <>
-                      <Form.Group controlId="tuesdayStartTime">
-                        <Form.Label>Start Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="9">9am</option>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group controlId="tuesdayEndTime">
-                        <Form.Label>End Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                          <option value="18">6pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                    </>
-                  )}
-                </Form.Row>
-                <Form.Row>
-                  <Form.Check
-                    type="checkbox"
-                    name="wednesdayDates"
-                    label="Wednesday"
-                    ref={register}
-                    wednesdayDate={wednesdayDate}
-                    onChange={() => setWednesdayDate(!wednesdayDate)}
-                  />
-                  {wednesdayDate && (
-                    <>
-                      <Form.Group controlId="wednesdayStartTime">
-                        <Form.Label>Start Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="9">9am</option>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group controlId="wednesdayEndTime">
-                        <Form.Label>End Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                          <option value="18">6pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                    </>
-                  )}
-                </Form.Row>
-                <Form.Row>
-                  <Form.Check
-                    type="checkbox"
-                    name="thursdayDates"
-                    label="Thursday"
-                    ref={register}
-                    thursdayDate={thursdayDate}
-                    onChange={() => setThursdayDate(!thursdayDate)}
-                  />
-                  {thursdayDate && (
-                    <>
-                      <Form.Group controlId="thursdayStartTime">
-                        <Form.Label>Start Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="9">9am</option>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group controlId="thursdayEndTime">
-                        <Form.Label>End Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                          <option value="18">6pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                    </>
-                  )}
-                </Form.Row>
-                <Form.Row>
-                  <Form.Check
-                    type="checkbox"
-                    name="fridayDates"
-                    label="Friday"
-                    ref={register}
-                    fridayDate={fridayDate}
-                    onChange={() => setFridayDate(!fridayDate)}
-                  />
-                  {fridayDate && (
-                    <>
-                      <Form.Group controlId="fridayStartTime">
-                        <Form.Label>Start Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="9">9am</option>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group controlId="fridayEndTime">
-                        <Form.Label>End Time</Form.Label>
-                        <Form.Control as="select" ref={register}>
-                          <option value="10">10am</option>
-                          <option value="11">11am</option>
-                          <option value="12">12pm</option>
-                          <option value="13">1pm</option>
-                          <option value="14">2pm</option>
-                          <option value="15">3pm</option>
-                          <option value="16">4pm</option>
-                          <option value="17">5pm</option>
-                          <option value="18">6pm</option>
-                        </Form.Control>
-                      </Form.Group>
-                    </>
-                  )}
-                </Form.Row>
-              </Form.Group>
+              <Container className="float-left">
+                <Form.Group controlId="datesAvailable">
+                  <Form.Label style={labelStyle}>Dates Available</Form.Label>
+
+                    <Form.Check type="checkbox" name="mondayDates" label="Monday" ref={register} mondayDate={mondayDate} onChange={() => setMondayDate(!mondayDate)}/>
+                    {mondayDate &&
+                      <>
+                    <Form.Group controlId="mondayStartTime">
+                      <Form.Label>Start Time</Form.Label>
+                      <Form.Control as="select" name="mondayStartTime" ref={register}>
+                        <option value="9">9am</option>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="mondayEndTime">
+                      <Form.Label>End Time</Form.Label>
+                      <Form.Control as="select" name="mondayEndTime" ref={register}>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                        <option value="18">6pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </>
+                  }
+
+                    <Form.Check type="checkbox" name="tuesdayDates" label="Tuesday" ref={register} tuesdayDate={tuesdayDate} onChange={() => setTuesdayDate(!tuesdayDate)}/>
+                    {tuesdayDate &&
+                      <>
+                    <Form.Group controlId="tuesdayStartTime">
+                      <Form.Label>Start Time</Form.Label>
+                      <Form.Control as="select" name="tuesdayStartTime" ref={register}>
+                        <option value="9">9am</option>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="tuesdayEndTime">
+                      <Form.Label>End Time</Form.Label>
+                      <Form.Control as="select" name="tuesdayEndTime" ref={register}>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                        <option value="18">6pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </>
+                  }
+
+                    <Form.Check type="checkbox" name="wednesdayDates" label="Wednesday" ref={register} wednesdayDate={wednesdayDate} onChange={() => setWednesdayDate(!wednesdayDate)}/>
+                    {wednesdayDate &&
+                      <>
+                    <Form.Group controlId="wednesdayStartTime">
+                      <Form.Label>Start Time</Form.Label>
+                      <Form.Control as="select" name="wednesdayStartTime" ref={register}>
+                        <option value="9">9am</option>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="wednesdayEndTime">
+                      <Form.Label>End Time</Form.Label>
+                      <Form.Control as="select" name="wednesdayEndTime" ref={register}>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                        <option value="18">6pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </>
+                  }
+
+                    <Form.Check type="checkbox" name="thursdayDates" label="Thursday" ref={register} thursdayDate={thursdayDate} onChange={() => setThursdayDate(!thursdayDate)}/>
+                    {thursdayDate &&
+                      <>
+                    <Form.Group controlId="thursdayStartTime">
+                      <Form.Label>Start Time</Form.Label>
+                      <Form.Control as="select" name="thursdayStartTime" ref={register}>
+                        <option value="9">9am</option>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="thursdayEndTime">
+                      <Form.Label>End Time</Form.Label>
+                      <Form.Control as="select" name="thursdayEndTime" ref={register}>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                        <option value="18">6pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </>
+                  }
+
+                    <Form.Check type="checkbox" name="fridayDates" label="Friday" ref={register} fridayDate={fridayDate} onChange={() => setFridayDate(!fridayDate)}/>
+                    {fridayDate &&
+                      <>
+                    <Form.Group controlId="fridayStartTime">
+                      <Form.Label>Start Time</Form.Label>
+                      <Form.Control as="select" name="fridayStartTime" ref={register}>
+                        <option value="9">9am</option>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="fridayEndTime">
+                      <Form.Label>End Time</Form.Label>
+                      <Form.Control as="select" name="fridayEndTime" ref={register}>
+                        <option value="10">10am</option>
+                        <option value="11">11am</option>
+                        <option value="12">12pm</option>
+                        <option value="13">1pm</option>
+                        <option value="14">2pm</option>
+                        <option value="15">3pm</option>
+                        <option value="16">4pm</option>
+                        <option value="17">5pm</option>
+                        <option value="18">6pm</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </>
+                  }
+                </Form.Group>
+              </Container>
             </Col>
           </Form.Row>
 
@@ -384,19 +342,14 @@ export default function TherapistForm() {
             {errors.exampleRequired && <span>This field is required</span>}
           */}
 
-          <Form.Group controlId="therapistNotes">
-            <Form.Label>Additional Notes</Form.Label>
-            <Form.Control
-              name="therapistNotes"
-              type="text"
-              placeholder="Enter any additional information"
-              ref={register}
-            />
-          </Form.Group>
 
-          <Button type="submit">Submit</Button>
+
+          <Button as={Col} variant="outline-dark" type="submit">Submit</Button>
         </Form>
       </Container>
+      <br>
+        
+      </br>
     </div>
   );
 }
