@@ -5,14 +5,73 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 export default function PatientForm() {
   const { register, handleSubmit, watch, errors } = useForm()
 
+  const [sumbittedForm, setSubmittedForm] = useState(false)
+
   const [mondayDate, setMondayDate] = useState(false)
   const [tuesdayDate, setTuesdayDate] = useState(false)
   const [wednesdayDate, setWednesdayDate] = useState(false)
   const [thursdayDate, setThursdayDate] = useState(false)
   const [fridayDate, setFridayDate] = useState(false)
 
-  const onSubmit = data => { console.log(data) }
+  // 2019-10-21 ##:00:00
+  // 22
+  // 23
+  // 24
+  // 25
 
+  const onSubmit = data => {
+    let availablePatientDates = []
+    if( data.mondayDates ) {
+      availablePatientDates[0] = {}
+      availablePatientDates[0].startDate = `2019-10-21 ${data.mondayStartTime}:00:00`
+      availablePatientDates[0].endDate = `2019-10-21 ${data.mondayEndTime}:00:00`
+    } else {
+      availablePatientDates[0] = null
+    }
+    if( data.tuesdayDates ) {
+      availablePatientDates[1] = {}
+      availablePatientDates[1].startDate = `2019-10-22 ${data.tuesdayStartTime}:00:00`
+      availablePatientDates[1].endDate = `2019-10-22 ${data.tuesdayEndTime}:00:00`
+    } else {
+      availablePatientDates[1] = null
+    }
+    if( data.wednesdayDates ) {
+      availablePatientDates[2] = {}
+      availablePatientDates[2].startDate = `2019-10-23 ${data.wednesdayStartTime}:00:00`
+      availablePatientDates[2].endDate = `2019-10-23 ${data.wednesdayEndTime}:00:00`
+    } else {
+      availablePatientDates[2] = null
+    }
+    if( data.thursdayDates ) {
+      availablePatientDates[3] = {}
+      availablePatientDates[3].startDate = `2019-10-24 ${data.thursdayStartTime}:00:00`
+      availablePatientDates[3].endDate = `2019-10-24 ${data.thursdayEndTime}:00:00`
+    } else {
+      availablePatientDates[3] = null
+    }
+    if( data.fridayDates ) {
+      availablePatientDates[4] = {}
+      availablePatientDates[4].startDate = `2019-10-25 ${data.fridayStartTime}:00:00`
+      availablePatientDates[4].endDate = `2019-10-25 ${data.fridayEndTime}:00:00`
+    }  else {
+      availablePatientDates[4] = null
+    }
+    let refinedData = {}
+    refinedData.fName = data.firstName
+    refinedData.lName = data.lastName
+    refinedData.phoneNum = data.phoneNumber
+    refinedData.emailAddr = data.emailAddress
+    refinedData.availablePatientDates = availablePatientDates
+    fetch(`http://localhost:8080/patients`, {
+      method: 'POST',
+      body: JSON.stringify(refinedData),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(() => setSubmittedForm(true))
+     console.log(data)
+     console.log(refinedData)
+   }
   //console.log(watch('firstName')) // watch input value by passing the name of it
 
   return (
@@ -97,7 +156,7 @@ export default function PatientForm() {
                     <>
                   <Form.Group controlId="mondayStartTime">
                     <Form.Label>Start Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="mondayStartTime" ref={register}>
                       <option value="9">9am</option>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
@@ -111,7 +170,7 @@ export default function PatientForm() {
                   </Form.Group>
                   <Form.Group controlId="mondayEndTime">
                     <Form.Label>End Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="mondayEndTime" ref={register}>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
                       <option value="12">12pm</option>
@@ -132,7 +191,7 @@ export default function PatientForm() {
                     <>
                   <Form.Group controlId="tuesdayStartTime">
                     <Form.Label>Start Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="tuesdayStartTime" ref={register}>
                       <option value="9">9am</option>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
@@ -146,7 +205,7 @@ export default function PatientForm() {
                   </Form.Group>
                   <Form.Group controlId="tuesdayEndTime">
                     <Form.Label>End Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="tuesdayEndTime" ref={register}>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
                       <option value="12">12pm</option>
@@ -167,7 +226,7 @@ export default function PatientForm() {
                     <>
                   <Form.Group controlId="wednesdayStartTime">
                     <Form.Label>Start Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="wednesdayStartTime" ref={register}>
                       <option value="9">9am</option>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
@@ -181,7 +240,7 @@ export default function PatientForm() {
                   </Form.Group>
                   <Form.Group controlId="wednesdayEndTime">
                     <Form.Label>End Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="wednesdayEndTime" ref={register}>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
                       <option value="12">12pm</option>
@@ -202,7 +261,7 @@ export default function PatientForm() {
                     <>
                   <Form.Group controlId="thursdayStartTime">
                     <Form.Label>Start Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="thursdayStartTime" ref={register}>
                       <option value="9">9am</option>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
@@ -216,7 +275,7 @@ export default function PatientForm() {
                   </Form.Group>
                   <Form.Group controlId="thursdayEndTime">
                     <Form.Label>End Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="thursdayEndTime" ref={register}>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
                       <option value="12">12pm</option>
@@ -237,7 +296,7 @@ export default function PatientForm() {
                     <>
                   <Form.Group controlId="fridayStartTime">
                     <Form.Label>Start Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="fridayStartTime" ref={register}>
                       <option value="9">9am</option>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
@@ -251,7 +310,7 @@ export default function PatientForm() {
                   </Form.Group>
                   <Form.Group controlId="fridayEndTime">
                     <Form.Label>End Time</Form.Label>
-                    <Form.Control as="select" ref={register}>
+                    <Form.Control as="select" name="fridayEndTime" ref={register}>
                       <option value="10">10am</option>
                       <option value="11">11am</option>
                       <option value="12">12pm</option>
