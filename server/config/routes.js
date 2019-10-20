@@ -7,7 +7,8 @@ module.exports = function(app){
 
   app.get('/doctors', doctorsController.fetchAll);
   app.post('/doctors', doctorsController.addOne);
-  
-  app.get('/', patientsController.fetchAll);
+  app.get('/patients', patientsController.fetchAll);
+  app.post('/patients', patientsController.addOne);
+  // app.get('/', patientsController.fetchAll);
 
 }

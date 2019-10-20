@@ -23,6 +23,5 @@ module.exports = {
 				return req.body.startDate, req.body.endDate
 					}
 				);
-			});
-	}
-};
+}
+}
