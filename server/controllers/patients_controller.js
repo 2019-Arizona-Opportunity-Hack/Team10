@@ -18,15 +18,18 @@ module.exports = {
     }, '*').then((res) => {
         console.log(res[0].id);
         return req.body.availablePatientDates.map((availablePatientDate) => {
-            knex('doctor_avails')
-            .insert({
-                startDate: availablePatientDate.startDate,
-                endDate: availablePatientDate.endDate,
-                doctor_id: res[0].id
-            }).then(() => {
-                // res.sendStatus(200);
-                res.sendStatus('OK');
-            })
+          if(availablePatientDate != null)
+            {
+              knex('patient_availabilities')
+              .insert({
+                  startDate: availablePatientDate.startDate,
+                  endDate: availablePatientDate.endDate,
+                  patient_id: res[0].id
+              }).then(() => {
+                  // res.sendStatus(200);
+                  res.status(200).send('ok');
+              })
+            }
         })
     })
   }
