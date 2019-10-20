@@ -2,8 +2,8 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable(('appointments'), table =>{
         table.increments();
-        table.string('startTime');
-        table.string('endTime');
+        table.string('startDate');
+        table.string('endDate');
         table.integer('patient_id')
             .references('id')
             .inTable('patients')

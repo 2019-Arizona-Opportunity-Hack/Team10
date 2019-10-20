@@ -1,9 +1,9 @@
 
 exports.up = function(knex, Promise) {
-    return knex.schema.createTable(('doctor_availabilities'), table =>{
+    return knex.schema.createTable(('doctor_avails'), table =>{
         table.increments();
-        table.string('startTime');
-        table.string('endTime');
+        table.string('startDate');
+        table.string('endDate');
         table.integer('doctor_id')
             .references('id')
             .inTable('doctors')
@@ -14,5 +14,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('doctor_availabilities');
+  return knex.schema.dropTable('doctor_avails');
 };
