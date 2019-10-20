@@ -5,14 +5,13 @@ import TherapistForm from "./Forms/TherapistForm.jsx";
 // import HomeScreen from './Views/HomeScreen.jsx'
 import Login from "./Views/Login.jsx";
 
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav, Button, Container, Row, Col } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
   return (
     <div>
       <Router>
-        <Header />
         <Switch>
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/login" component={Login} />
@@ -28,25 +27,33 @@ export default function App() {
 function HomeScreen() {
   return (
     <div>
-      <Link to="/therapist">I am a therapist</Link>
-      <Link to="/patient">I am a patient</Link>
+      <Container className="text-center">
+        <Row>
+          <Col>
+            <Link to="/therapist">I am a therapist</Link>
+          </Col>
+          <Col>
+            <Link to="/patient">I am a patient</Link>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
 
-function Header() {
-  return (
-    <div>
-      <Navbar bg="light" expand="lg">
-        <Link to="/">
-          <Navbar.Brand>
-            Neurologic Music Therapy Services of Arizona
-          </Navbar.Brand>
-        </Link>
-        <Nav className="ml-auto">
-          <Link to="/login">Admin Login</Link>
-        </Nav>
-      </Navbar>
-    </div>
-  );
-}
+// function Header() {
+//   return (
+//     <div>
+//       <Navbar bg="light" expand="lg">
+//         <Link to="/">
+//           <Navbar.Brand>
+//             Neurologic Music Therapy Services of Arizona
+//           </Navbar.Brand>
+//         </Link>
+//         <Nav className="ml-auto">
+//           <Link to="/login">Admin Login</Link>
+//         </Nav>
+//       </Navbar>
+//     </div>
+//   );
+// }

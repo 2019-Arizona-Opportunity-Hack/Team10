@@ -1,11 +1,12 @@
-import React from 'react'
-import {Form, Button, Container} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Form, Button, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Header from "./Header";
 
 export default function Login() {
-
   return (
     <div>
+      <Header />
       <Container>
         <Form>
           <Form.Group controlId="loginUsername">
@@ -18,14 +19,11 @@ export default function Login() {
             <Form.Control type="password" placeholder="Enter password" />
           </Form.Group>
 
-
-            <Link to="/dashboard" className="btn btn-primary float-left" >
-                  Submit
-            </Link>
-
+          <Link to="/dashboard" className="btn btn-primary float-left">
+            Submit
+          </Link>
         </Form>
       </Container>
-
     </div>
-  )
+  );
 }
