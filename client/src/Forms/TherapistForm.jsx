@@ -340,7 +340,7 @@ export default function TherapistForm() {
 
 
 
-          <Button as={Col} variant="outline-dark" type="submit">Submit</Button>
+          <Button variant="outline-dark" type="submit" className="btn-lg btn-block">Submit</Button>
         </Form>
       </Container>
       <br>
