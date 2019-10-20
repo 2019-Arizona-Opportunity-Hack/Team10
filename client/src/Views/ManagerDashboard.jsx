@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "../Styles/MangagerDashboard.css";
 import Brand from "../assets/logo/logo.svg";
-import ManagerDashboardContent from "./ManagerDashboardContent";
 import ManagerDashboardMenu from "./ManagerDashboardMenu";
 import ManagerDoctorsCom from "./ManagerDoctorsCom";
+import { Link } from "react-router-dom";
 
 class ManagerDashboard extends Component {
   patientInfo = [
@@ -97,7 +97,9 @@ class ManagerDashboard extends Component {
               </div>
               <ManagerDashboardMenu />
             </div>
-            <div className="logoutbtn">logout</div>
+            <div className="logoutbtn">
+              <Link to="/">logout</Link>
+            </div>
           </div>
           {/* <ManagerDashboardContent /> */}
           <ManagerDoctorsCom patientInfo={this.patientInfo} />

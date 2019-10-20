@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useForm from 'react-hook-form'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import Header from '../Views/Header'
 
 export default function PatientForm() {
   const { register, handleSubmit, watch, errors } = useForm()
@@ -76,6 +77,7 @@ export default function PatientForm() {
 
   return (
     <div>
+    <Header/>
       <Container>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Row>
