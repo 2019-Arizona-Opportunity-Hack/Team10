@@ -5,7 +5,7 @@ import ManagerDashboard from "./Views/ManagerDashboard";
 export default function App() {
   return (
     <div>
-      <PatientForm />
+      {/* <PatientForm /> */}
       <ManagerDashboard />
     </div>
   );
