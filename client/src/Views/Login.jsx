@@ -18,10 +18,9 @@ export default function Login() {
             <Form.Control type="password" placeholder="Enter password" />
           </Form.Group>
 
-
-            <Link to="/dashboard" className="btn btn-primary float-left" >
-                  Submit
-            </Link>
+          <Link to="/dashboard" className="btn btn-primary float-left" >
+            Submit
+          </Link>
 
         </Form>
       </Container>
