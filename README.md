@@ -1,11 +1,16 @@
 
 # Team10
 
+## How to use this software (when it is implemented)
+  - Patients/Therapists fill out new forms with availability
+  - Scheduling Manager can log in to look at patients and therapists data
+  - Manager can then assign appointments based on availability 
+
 ## 1. Common import/export format.
 
 Data can be imported or exported to our system in JSON. This means that a simple converter can be used on a dumped CSV to input to our system via POST or export via GET.
 
- - Import CSV: https://www.csvjson.com/csv2json 
+ - Import CSV: https://www.csvjson.com/csv2json
  - Export CSV: https://www.csvjson.com/json2csv
 
 #### GET request to /doctors:
