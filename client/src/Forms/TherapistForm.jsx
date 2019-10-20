@@ -6,7 +6,6 @@ import Header from "../Views/Header";
 export default function TherapistForm() {
   const { register, handleSubmit, watch, errors } = useForm();
 
-<<<<<<< HEAD
   const [sumbittedForm, setSubmittedForm] = useState(false);
 
   const [mondayDate, setMondayDate] = useState(false);
@@ -21,22 +20,6 @@ export default function TherapistForm() {
       availableDoctorDates[0] = {};
       availableDoctorDates[0].startDate = `2019-10-21 ${data.mondayStartTime}:00:00`;
       availableDoctorDates[0].endDate = `2019-10-21 ${data.mondayEndTime}:00:00`;
-=======
-  const [sumbittedForm, setSubmittedForm] = useState(false)
-
-  const [mondayDate, setMondayDate] = useState(false)
-  const [tuesdayDate, setTuesdayDate] = useState(false)
-  const [wednesdayDate, setWednesdayDate] = useState(false)
-  const [thursdayDate, setThursdayDate] = useState(false)
-  const [fridayDate, setFridayDate] = useState(false)
-
-  const onSubmit = data => {
-    let availableDoctorDates = []
-    if( data.mondayDates ) {
-      availableDoctorDates[0] = {}
-      availableDoctorDates[0].startDate = `2019-10-21 ${data.mondayStartTime}:00:00`
-      availableDoctorDates[0].endDate = `2019-10-21 ${data.mondayEndTime}:00:00`
->>>>>>> 8073a572668b34ad00f710e4c2f2c9683161a719
     } else {
       availableDoctorDates[0] = null;
     }
@@ -80,18 +63,10 @@ export default function TherapistForm() {
       headers: {
         "Content-Type": "application/json"
       }
-<<<<<<< HEAD
     }).then(() => setSubmittedForm(true));
     console.log(data);
     console.log(refinedData);
   };
-
-=======
-    }).then(() => setSubmittedForm(true))
-     console.log(data)
-     console.log(refinedData)
-   }
->>>>>>> 8073a572668b34ad00f710e4c2f2c9683161a719
   //console.log(watch('firstName')) // watch input value by passing the name of it
 
   return (
