@@ -5,6 +5,8 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 export default function TherapistForm() {
   const { register, handleSubmit, watch, errors } = useForm()
 
+  const [sumbittedForm, setSubmittedForm] = useState(false)
+
   const [mondayDate, setMondayDate] = useState(false)
   const [tuesdayDate, setTuesdayDate] = useState(false)
   const [wednesdayDate, setWednesdayDate] = useState(false)
