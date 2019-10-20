@@ -6,17 +6,6 @@ import Header from "../Views/Header";
 export default function TherapistForm() {
   const { register, handleSubmit, watch, errors } = useForm();
 
-<<<<<<< HEAD
-  const [mondayDate, setMondayDate] = useState(false);
-  const [tuesdayDate, setTuesdayDate] = useState(false);
-  const [wednesdayDate, setWednesdayDate] = useState(false);
-  const [thursdayDate, setThursdayDate] = useState(false);
-  const [fridayDate, setFridayDate] = useState(false);
-
-  const onSubmit = data => {
-    console.log(data);
-  };
-=======
   const [sumbittedForm, setSubmittedForm] = useState(false)
 
   const [mondayDate, setMondayDate] = useState(false)
@@ -78,8 +67,6 @@ export default function TherapistForm() {
      console.log(data)
      console.log(refinedData)
    }
->>>>>>> d925f25e9cc31b98a3c8211987c0a3cb81a4d2db
-
   //console.log(watch('firstName')) // watch input value by passing the name of it
 
   return (
