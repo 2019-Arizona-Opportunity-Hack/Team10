@@ -16,7 +16,7 @@ const ManagerDoctorsCom = ({ doctors }) => {
         </h3>
         <div className="doctorCardsWrapperTitle">
           <div className="doctorCardTitle doctorIllastration">
-            <span className="doctorCardItem">Avarta</span>
+            <span className="doctorCardItem">Avatar</span>
             <span className="doctorCardItem">Name</span>
             <span className="doctorCardItem">Email</span>
             <span className="doctorCardItem">Last Date Seen</span>
